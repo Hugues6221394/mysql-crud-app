@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: yourusername/mysql-crud-frontend:latest
+        image: hugues6221394/mysql-crud-frontend:latest
         ports:
         - containerPort: 80
         envFrom:

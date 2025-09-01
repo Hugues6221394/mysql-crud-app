@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: yourusername/mysql-crud-backend:latest
+        image: hugues6221394/mysql-crud-backend:latest
         env:
         - name: DB_HOST
           value: "mariadb"
