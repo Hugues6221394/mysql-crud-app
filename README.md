@@ -1,72 +1,104 @@
 # MySQL CRUD Application
 
-A full-stack application with MySQL, Node.js/Express backend, and React frontend, containerized with Docker and deployable to Kubernetes.
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-000000?logo=express&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?logo=kubernetes&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?logo=github-actions&logoColor=white)
+
+A full-stack application with a MySQL database, Node.js/Express backend, and React frontend.  
+The project is fully containerized with Docker and includes deployment manifests for Kubernetes.
 
 ## Features
 
-- Create, Read, Update, Delete (CRUD) operations on items
+- Full CRUD (Create, Read, Update, Delete) operations
 - MySQL database with sample data
-- Node.js/Express REST API
-- React frontend with Vite
-- Docker containerization
-- Kubernetes deployment manifests
-- GitHub Actions CI/CD pipelines
-
-Here’s a cleanly aligned version you can drop into your README:
+- REST API built with Node.js/Express
+- React frontend powered by Vite
+- Docker containerization for local and production
+- Kubernetes manifests for cloud deployment
+- GitHub Actions workflows for CI/CD
 
 ## Project Structure
 
 ```
 
 mysql-crud-app/
-├── .github/workflows/     # GitHub Actions workflows
-├── backend/              # Node.js/Express API
-├── frontend/             # React application
-├── k8s/                  # Kubernetes manifests
-├── mariadb/              # Database initialization scripts
-├── nginx/                # NGINX configuration
-├── docker-compose.yml    # Production compose file
-├── docker-compose.dev.yml# Development compose file
-└── .env                  # Environment variables
+├── .github/workflows/      # GitHub Actions workflows
+├── backend/                # Node.js/Express API
+├── frontend/               # React application
+├── k8s/                    # Kubernetes manifests
+├── mariadb/                # Database initialization scripts
+├── nginx/                  # NGINX configuration
+├── docker-compose.yml      # Production compose file
+├── docker-compose.dev.yml  # Development compose file
+└── .env                    # Environment variables
 
-```
+````
 
 ## Quick Start
 
-### Development with Docker Compose
+### Development (Docker Compose)
 
-1. Clone the repository
-2. Run `docker-compose -f docker-compose.dev.yml up --build`
-3. Access the application at http://localhost:5173
+1. Clone the repository  
+2. Run:  
+   ```bash
+   docker-compose -f docker-compose.dev.yml up --build
+````
 
-### Production Deployment with Docker Compose
+3. Open the app at [http://localhost:5173](http://localhost:5173)
 
-1. Set environment variables in `.env`
-2. Build and push images to your registry
-3. Run `docker-compose up -d`
+### Production (Docker Compose)
+
+1. Configure environment variables in `.env`
+2. Build and push images to your container registry
+3. Deploy with:
+
+   ```bash
+   docker-compose up -d
+   ```
 
 ### Kubernetes Deployment
 
-1. Apply secrets: `kubectl apply -f k8s/mariadb-secret.yaml -f k8s/backend-secret.yaml`
-2. Apply configmaps: `kubectl apply -f k8s/mariadb-init-configmap.yaml -f k8s/frontend-configmap.yaml`
-3. Apply PVC: `kubectl apply -f k8s/mariadb-pvc.yaml`
-4. Apply deployments and services: `kubectl apply -f k8s/`
+1. Apply secrets:
+
+   ```bash
+   kubectl apply -f k8s/mariadb-secret.yaml -f k8s/backend-secret.yaml
+   ```
+2. Apply configmaps:
+
+   ```bash
+   kubectl apply -f k8s/mariadb-init-configmap.yaml -f k8s/frontend-configmap.yaml
+   ```
+3. Apply persistent volume claim:
+
+   ```bash
+   kubectl apply -f k8s/mariadb-pvc.yaml
+   ```
+4. Deploy workloads and services:
+
+   ```bash
+   kubectl apply -f k8s/
+   ```
 
 ## Environment Variables
 
-- `DB_ROOT_PASSWORD`: MySQL root password
-- `DB_USER`: MySQL application user
-- `DB_PASSWORD`: MySQL application user password
-- `DB_NAME`: MySQL database name
-- `BACKEND_IMAGE`: Backend Docker image name
-- `FRONTEND_IMAGE`: Frontend Docker image name
+| Variable           | Description                       |
+| ------------------ | --------------------------------- |
+| `DB_ROOT_PASSWORD` | MySQL root password               |
+| `DB_USER`          | MySQL application user            |
+| `DB_PASSWORD`      | Password for the application user |
+| `DB_NAME`          | MySQL database name               |
+| `BACKEND_IMAGE`    | Docker image for backend          |
+| `FRONTEND_IMAGE`   | Docker image for frontend         |
 
 ## API Endpoints
 
-- `GET /api/health` - Health check
-- `GET /api/items` - Get all items
-- `GET /api/items/:id` - Get single item
-- `POST /api/items` - Create new item
-- `PUT /api/items/:id` - Update item
-- `DELETE /api/items/:id` - Delete item
-
+* `GET /api/health` → Health check
+* `GET /api/items` → Fetch all items
+* `GET /api/items/:id` → Fetch single item
+* `POST /api/items` → Create new item
+* `PUT /api/items/:id` → Update item
+* `DELETE /api/items/:id` → Delete item
