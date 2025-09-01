@@ -46,7 +46,6 @@ mysql-crud-app/
 2. Run:  
    ```bash
    docker-compose -f docker-compose.dev.yml up --build
-````
 
 3. Open the app at [http://localhost:5173](http://localhost:5173)
 
