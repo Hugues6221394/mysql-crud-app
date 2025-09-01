@@ -12,19 +12,24 @@ A full-stack application with MySQL, Node.js/Express backend, and React frontend
 - Kubernetes deployment manifests
 - GitHub Actions CI/CD pipelines
 
+Here’s a cleanly aligned version you can drop into your README:
+
 ## Project Structure
 
-mysql-crud-app/
-├── .github/workflows/ # GitHub Actions workflows
-├── backend/ # Node.js/Express API
-├── frontend/ # React application
-├── k8s/ # Kubernetes manifests
-├── mariadb/ # Database initialization scripts
-├── nginx/ # NGINX configuration
-├── docker-compose.yml # Production compose file
-├── docker-compose.dev.yml # Development compose file
-└── .env Environment variables
+```
 
+mysql-crud-app/
+├── .github/workflows/     # GitHub Actions workflows
+├── backend/              # Node.js/Express API
+├── frontend/             # React application
+├── k8s/                  # Kubernetes manifests
+├── mariadb/              # Database initialization scripts
+├── nginx/                # NGINX configuration
+├── docker-compose.yml    # Production compose file
+├── docker-compose.dev.yml# Development compose file
+└── .env                  # Environment variables
+
+```
 
 ## Quick Start
 
