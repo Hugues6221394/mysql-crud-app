@@ -26,7 +26,6 @@ mysql-crud-app/
 └── .env Environment variables
 
 
-
 ## Quick Start
 
 ### Development with Docker Compose
